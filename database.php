@@ -9,7 +9,7 @@ class Database {
     public function __construct() {
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-        $this->conn = new mysqli($this->host, $this->username, $this->password, $this->dbname,3307);
+        $this->conn = new mysqli($this->host, $this->username, $this->password, $this->dbname, 3307);
         $this->conn->set_charset("utf8mb4");
     }
 
@@ -48,6 +48,38 @@ class Database {
         $affected = $stmt->affected_rows;
         $stmt->close();
         return $affected >= 0;
+    }
+
+    // Phương thức query đa năng - trả về kết quả tùy theo loại query
+    public function query($sql, $params = []) {
+        $stmt = $this->conn->prepare($sql);
+        
+        if (!empty($params)) {
+            $types = '';
+            foreach ($params as $p) {
+                if (is_int($p)) $types .= 'i';
+                elseif (is_float($p)) $types .= 'd';
+                else $types .= 's';
+            }
+            $stmt->bind_param($types, ...$params);
+        }
+        
+        $stmt->execute();
+        
+        // Kiểm tra loại query
+        $result = $stmt->get_result();
+        
+        if ($result) {
+            // Query SELECT - trả về mảng kết quả
+            $data = $result->fetch_all(MYSQLI_ASSOC);
+            $stmt->close();
+            return $data;
+        } else {
+            // Query INSERT/UPDATE/DELETE - trả về số dòng bị ảnh hưởng
+            $affected = $stmt->affected_rows;
+            $stmt->close();
+            return $affected;
+        }
     }
 
     public function insert_id() {

@@ -195,110 +195,70 @@
 		</div>
 	</section>
 
-	<section id="featured-books" class="py-5 my-5">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
+<section id="featured-books" class="py-5 my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-header align-center">
+                        <div class="title"><span>Some quality items</span></div>
+                        <h2 class="section-title">Featured Books</h2>
+                    </div>
 
-					<div class="section-header align-center">
-						<div class="title">
-							<span>Some quality items</span>
-						</div>
-						<h2 class="section-title">Featured Books</h2>
-					</div>
+                    <div class="product-list" data-aos="fade-up">
+                        <div class="row">
+                            <?php
+                            include 'database.php';
+                            $sql = new Database();
+                            $books = $sql->query("SELECT b.*, a.name as author_name 
+                                         FROM books b 
+                                         JOIN authors a ON b.author_id = a.id 
+                                         WHERE b.featured = 1 
+                                         ORDER BY b.id DESC LIMIT 4");
+                            foreach ($books as $book) { ?>
+                                <div class="col-md-3 mb-4">
+                                    <div class="product-item">
+                                        <figure class="product-style">
+                                            <img src="./images/<?= htmlspecialchars($book["cover_image"]) ?>.jpg"
+                                                alt="Books" class="product-item">
+                                            <form action="cart.php" method="post">
+                                                <input type="hidden" name="book_id"
+                                                    value="<?= htmlspecialchars($book['id']) ?>">
+                                                <button type="submit" name="add_to_cart" class="add-to-cart">
+                                                    Add to Cart
+                                                </button>
+                                            </form>
+                                        </figure>
+                                        <figcaption>
+                                            <h3><?= htmlspecialchars($book['title']) ?></h3>
+                                            <span><?= htmlspecialchars($book['author_name']) ?></span>
+                                            <div class="item-price">
+                                                <?php if ($book['old_price'] > 0): ?>
+                                                    <span class="prev-price">$
+                                                        <?= number_format($book['old_price'], 2) ?></span>
+                                                <?php endif; ?>
+                                                $ <?= number_format($book['price'], 2) ?>
+                                            </div>
+                                        </figcaption>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    </div>
 
-					<div class="product-list" data-aos="fade-up">
-						<div class="row">
-
-							<div class="col-md-3">
-								<div class="product-item">
-									<figure class="product-style">
-										<img src="images/product-item1.jpg" alt="Books" class="product-item">
-										<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
-											Cart</button>
-									</figure>
-									<figcaption>
-										<h3>Simple way of piece life</h3>
-										<span>Armor Ramsey</span>
-										<div class="item-price">$ 40.00</div>
-									</figcaption>
-								</div>
-							</div>
-
-							<div class="col-md-3">
-								<div class="product-item">
-									<figure class="product-style">
-										<img src="images/product-item2.jpg" alt="Books" class="product-item">
-										<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
-											Cart</button>
-									</figure>
-									<figcaption>
-										<h3>Great travel at desert</h3>
-										<span>Sanchit Howdy</span>
-										<div class="item-price">$ 38.00</div>
-									</figcaption>
-								</div>
-							</div>
-
-							<div class="col-md-3">
-								<div class="product-item">
-									<figure class="product-style">
-										<img src="images/product-item3.jpg" alt="Books" class="product-item">
-										<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
-											Cart</button>
-									</figure>
-									<figcaption>
-										<h3>The lady beauty Scarlett</h3>
-										<span>Arthur Doyle</span>
-										<div class="item-price">$ 45.00</div>
-									</figcaption>
-								</div>
-							</div>
-
-							<div class="col-md-3">
-								<div class="product-item">
-									<figure class="product-style">
-										<img src="images/product-item4.jpg" alt="Books" class="product-item">
-										<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
-											Cart</button>
-									</figure>
-									<figcaption>
-										<h3>Once upon a time</h3>
-										<span>Klien Marry</span>
-										<div class="item-price">$ 35.00</div>
-									</figcaption>
-								</div>
-							</div>
-
-						</div><!--ft-books-slider-->
-					</div><!--grid-->
-
-
-				</div><!--inner-content-->
-			</div>
-
-			<div class="row">
-				<div class="col-md-12">
-
-					<div class="btn-wrap align-right">
-						<a href="#" class="btn-accent-arrow">View all products <i
-								class="icon icon-ns-arrow-right"></i></a>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</section>
-
+                    <div class="btn-wrap align-right mt-4">
+                        <a href="shop.php" class="btn-accent-arrow">View all products <i
+                                class="icon icon-ns-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 	<section id="best-selling" class="leaf-pattern-overlay">
 		<div class="corner-pattern-overlay"></div>
 		<div class="container">
 			<div class="row justify-content-center">
-
 				<div class="col-md-8">
-
 					<div class="row">
-
 						<div class="col-md-6">
 							<figure class="products-thumb">
 								<img src="images/single-image.jpg" alt="book" class="single-image">
@@ -320,15 +280,11 @@
 												class="icon icon-ns-arrow-right"></i></a>
 									</div>
 								</div>
-
 							</div>
 						</div>
-
 					</div>
 					<!-- / row -->
-
 				</div>
-
 			</div>
 		</div>
 	</section>

@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `books` (
 --
 
 INSERT INTO `books` (`id`, `title`, `slug`, `author_id`, `category_id`, `description`, `price`, `old_price`, `isbn`, `pages`, `publication_year`, `cover_image`, `featured`, `bestseller`, `on_sale`, `stock`, `created_at`, `updated_at`) VALUES
-(1, 'Simple way of piece life', 'simple-way-of-piece-life', 1, 6, 'Cuốn sách giúp bạn tìm thấy sự bình yên trong cuộc sống hiện đại.', '40.00', '50.00', NULL, NULL, NULL, 'product-item1.jpg', 1, 0, 1, 99, '2025-12-01 08:50:51', '2025-12-01 08:50:51'),
+(1, 'Simple way of piece life', 'simple-way-of-piece-life', 1, 6, 'Cuốn sách giúp bạn tìm thấy sự bình yên trong cuộc sống hiện đại.', '40.00', '50.00', NULL, NULL, NULL, 'product-item1', 1, 0, 1, 99, '2025-12-01 08:50:51', '2025-12-01 08:50:51'),
 (2, 'Great travel at desert', 'great-travel-at-desert', 2, 4, 'Hành trình kỳ thú qua sa mạc Sahara.', '38.00', '30.00', NULL, NULL, NULL, 'product-item2.jpg', 1, 0, 1, 99, '2025-12-01 08:50:51', '2025-12-01 08:50:51'),
 (3, 'The lady beauty Scarlett', 'the-lady-beauty-scarlett', 3, 3, 'Câu chuyện tình yêu bất hủ.', '45.00', '35.00', NULL, NULL, NULL, 'product-item3.jpg', 1, 0, 1, 99, '2025-12-01 08:50:51', '2025-12-01 08:50:51'),
 (4, 'Once upon a time', 'once-upon-a-time', 4, 5, 'Cổ tích dành cho người lớn.', '35.00', '25.00', NULL, NULL, NULL, 'product-item4.jpg', 1, 0, 1, 99, '2025-12-01 08:50:51', '2025-12-01 08:50:51'),
