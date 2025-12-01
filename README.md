@@ -29,6 +29,3 @@ Một website mẫu được chuyển đổi từ HTML sang PHP thuần, phù h�
 ## Ghi chú
 - Nếu bạn muốn chuyển toàn bộ trang thành PHP (ví dụ để include header/footer động), đổi `index.html` thành `index.php` và sử dụng `include`/`require` để tái sử dụng phần đầu/cuối.
 - Kiểm tra quyền file và đường dẫn trên môi trường Windows khi gặp lỗi truy cập tài nguyên.
-
-## Liên hệ
-Nếu cần hỗ trợ thêm hoặc muốn mình sửa README theo yêu cầu cụ thể (ngôn ngữ, chi tiết cài đặt, thêm hướng dẫn DB), cho mình biết chi tiết thay đổi bạn muốn.
