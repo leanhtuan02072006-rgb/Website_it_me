@@ -1,6 +1,6 @@
 <?php
 include 'database.php';
-$db = new Database();   // <-- Dùng biến $db, không phải $sql
+$db = new Database();   
 
 // ================ 1. FEATURED BOOKS ================
 $featured_books = $db->select("
@@ -35,7 +35,7 @@ $params[] = $limit;
 $params[] = $offset;
 
 // Lấy danh sách sách theo trang + thể loại
-$books = $db->select($sql2, $params);   // <-- đúng biến $db
+$books = $db->select($sql2, $params);   
 
 // ================ 3. ĐẾM TỔNG SỐ SÁCH (cho phân trang) ================
 $countSql = "SELECT COUNT(*) FROM books b JOIN categories c ON b.category_id = c.id";
