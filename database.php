@@ -1,12 +1,14 @@
 <?php
-class Database {
+class Database
+{
     private $host = "localhost";
     private $username = "root";
     private $password = "";
     private $dbname = "booksaw_db";
     private $conn;
 
-    public function __construct() {
+    public function __construct()
+    {
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
         $this->conn = new mysqli($this->host, $this->username, $this->password, $this->dbname, 3307);
@@ -14,14 +16,18 @@ class Database {
     }
 
     // SELECT trả mảng
-    public function select($sql, $params = []) {
+    public function select($sql, $params = [])
+    {
         $stmt = $this->conn->prepare($sql);
         if (!empty($params)) {
             $types = '';
             foreach ($params as $p) {
-                if (is_int($p)) $types .= 'i';
-                elseif (is_float($p)) $types .= 'd';
-                else $types .= 's';
+                if (is_int($p))
+                    $types .= 'i';
+                elseif (is_float($p))
+                    $types .= 'd';
+                else
+                    $types .= 's';
             }
             $stmt->bind_param($types, ...$params);
         }
@@ -33,14 +39,18 @@ class Database {
     }
 
     // INSERT/UPDATE/DELETE
-    public function execute($sql, $params = []) {
+    public function execute($sql, $params = [])
+    {
         $stmt = $this->conn->prepare($sql);
         if (!empty($params)) {
             $types = '';
             foreach ($params as $p) {
-                if (is_int($p)) $types .= 'i';
-                elseif (is_float($p)) $types .= 'd';
-                else $types .= 's';
+                if (is_int($p))
+                    $types .= 'i';
+                elseif (is_float($p))
+                    $types .= 'd';
+                else
+                    $types .= 's';
             }
             $stmt->bind_param($types, ...$params);
         }
@@ -51,24 +61,28 @@ class Database {
     }
 
     // Phương thức query đa năng - trả về kết quả tùy theo loại query
-    public function query($sql, $params = []) {
+    public function query($sql, $params = [])
+    {
         $stmt = $this->conn->prepare($sql);
-        
+
         if (!empty($params)) {
             $types = '';
             foreach ($params as $p) {
-                if (is_int($p)) $types .= 'i';
-                elseif (is_float($p)) $types .= 'd';
-                else $types .= 's';
+                if (is_int($p))
+                    $types .= 'i';
+                elseif (is_float($p))
+                    $types .= 'd';
+                else
+                    $types .= 's';
             }
             $stmt->bind_param($types, ...$params);
         }
-        
+
         $stmt->execute();
-        
+
         // Kiểm tra loại query
         $result = $stmt->get_result();
-        
+
         if ($result) {
             // Query SELECT - trả về mảng kết quả
             $data = $result->fetch_all(MYSQLI_ASSOC);
@@ -81,16 +95,22 @@ class Database {
             return $affected;
         }
     }
-
-    public function insert_id() {
+    public function prepare(string $sql)
+    {
+        return $this->conn->prepare($sql);
+    }
+    public function insert_id()
+    {
         return $this->conn->insert_id;
     }
 
-    public function close() {
+    public function close()
+    {
         $this->conn->close();
     }
 
-    public function getConn() {
+    public function getConn()
+    {
         return $this->conn;
     }
 }
