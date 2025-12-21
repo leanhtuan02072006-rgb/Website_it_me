@@ -1,0 +1,79 @@
+# PHP Session Files
+session.php
+*.session
+
+# Database Backups
+*.sql.backup
+*.sql.bak
+database_backup/
+
+# IDE & Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# Composer
+/vendor/
+composer.lock
+
+# NPM
+/node_modules/
+npm-debug.log
+yarn-error.log
+
+# Laravel-specific
+/bootstrap/cache/
+/storage/
+/public/hot
+/public/storage
+/.env
+
+# Testing
+/tests/
+coverage/
+.phpunit.result.cache
+
+# Logs
+*.log
+logs/
+
+# Cache
+/cache/
+.cache
+*.cache
+
+# Temporary Files
+tmp/
+temp/
+*.tmp
+
+# OS Files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Build Files
+/dist/
+/build/
+*.min.js
+*.min.css
+
+# Private Config
+config.local.php
+config/private/
+
+# User Uploads (optional)
+# uploads/
+# user_data/
+

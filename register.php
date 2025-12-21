@@ -3,6 +3,8 @@ session_start();
 include 'database.php';
 include 'auth.php';
 
+$db = new Database();
+
 // Nếu đã đăng nhập, redirect về trang chủ
 if (Auth::isLoggedIn()) {
     header('Location: index.php');

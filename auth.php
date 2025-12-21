@@ -1,12 +1,10 @@
 <?php
-session_start();
-include 'database.php';
-
 class Auth {
     private $db;
     
     public function __construct() {
-        $this->db = new Database();
+        global $db;
+        $this->db = $db;
     }
     
     // Đăng ký
