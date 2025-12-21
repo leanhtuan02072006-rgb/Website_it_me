@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2025 isonekai
+Copyright (c) 2025 BookSaw Project
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,48 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+## Về BookSaw
+
+**BookSaw** là một ứng dụng web bán sách open-source được phát triển bằng PHP, MySQL, và Bootstrap.
+
+### Tính năng
+- Hệ thống quản lý sách với cơ sở dữ liệu
+- Xác thực người dùng (đăng ký/đăng nhập)
+- Chức năng giỏ hàng và thanh toán
+- Giao diện thân thiện người dùng
+- Quản lý dữ liệu động từ cơ sở dữ liệu
+
+### Mục đích sử dụng
+Dự án này được tạo ra để:
+- Cung cấp nền tảng e-commerce cho bán sách
+- Giáo dục về phát triển web PHP
+- Hỗ trợ các nhà phát triển muốn xây dựng hệ thống tương tự
+
+### Quyền sử dụng
+Bạn có quyền:
+- ✅ Sử dụng, sửa đổi, phân phối dự án
+- ✅ Sử dụng cho mục đích thương mại
+- ✅ Tạo phiên bản riêng của dự án
+
+### Điều kiện
+- ⚠️ Phải giữ lại thông báo bản quyền và giấy phép MIT
+- ⚠️ Không có bảo đảm - sử dụng trên chính sách chấp nhận rủi ro của bạn
+
+### Đóng góp
+Nếu bạn muốn đóng góp:
+1. Fork dự án
+2. Tạo branch mới cho tính năng của bạn
+3. Commit thay đổi
+4. Push lên và tạo Pull Request
+
+### Liên hệ & Hỗ trợ
+- Phiên bản: 1.0.0
+- Ngày phát hành: 2025-12-21
+- Status: Đang phát triển
+
+---
+
+**Cảm ơn bạn đã sử dụng BookSaw!** 📚
